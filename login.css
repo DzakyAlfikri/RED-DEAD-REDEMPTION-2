@@ -1,0 +1,107 @@
+*{
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: 'ChineseRock';
+    src: url(asset/chinese\ rocks\ rg.otf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+}
+
+.login {
+    display: flex;
+    height: 100vh;
+}
+
+.gambar1 {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.gambar1 img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+}
+
+.input {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    
+}
+
+.input img {
+    width: 100%;
+}
+
+h2 {
+    font-family: 'ChineseRock';
+    color: #fff;
+    text-align: center;
+    font-size: 39px;
+    margin: 0;
+    
+}
+span{
+    color: red;
+}
+.garisbawah{
+    background-color: white;
+    width: 88%;
+    height: 2px;
+    margin-bottom: 20px;
+    
+}
+form{
+    width: 88%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input form{
+    font-family: 'ChineseRock';
+}
+.isi {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background: white;
+    border: none;
+    font-family: inherit;
+    font-size: 25px;
+}
+
+.tombol {   
+    width: 20%;
+    padding: 8px;
+    margin: 20px 0;
+    background: #840000;
+    border: 3px solid #CF0000;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 25px;
+    display: block;
+    text-align: center;
+}
+.buat-akun {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: center;
+    display: block;
+}
+
