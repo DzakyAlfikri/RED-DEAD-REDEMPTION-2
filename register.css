@@ -1,36 +1,19 @@
 *{
     box-sizing: border-box;
 }
-
 @font-face{
     font-family: 'ChineseRock';
     src: url(asset/chinese\ rocks\ rg.otf);
 }
-
-body {
+body{
     margin: 0;
     padding: 0;
-    background: #000;
+    background: black;
 }
-
-.login {
+.registrasi{
     display: flex;
     height: 100vh;
 }
-
-.gambar1 {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-}
-
-.gambar1 img {
-    width: 90%;
-    height: 90%;
-    object-fit: cover;
-}
-
 .input {
     flex: 1;
     padding: 40px;
@@ -39,30 +22,16 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
-    
+    margin-top: 60px;
 }
-
-.input img {
-    width: 100%;
-}
-
 h2 {
     font-family: 'ChineseRock';
     color: #fff;
     text-align: center;
     font-size: 33px;
-    margin: 0;
-    
 }
 span{
     color: #CF0000;
-}
-.garisbawah{
-    background-color: white;
-    width: 88%;
-    height: 2px;
-    margin-bottom: 20px;
-    
 }
 form{
     width: 88%;
@@ -96,13 +65,23 @@ input::placeholder{
     display: block;
     text-align: center;
 }
-.buat-akun {
+.balik-login {
+    font-family: 'ChineseRock';
     color: white;
     text-decoration: none;
     font-size: 20px;
     margin-top: 20px;
     text-align: center;
     display: block;
-    font-family: 'ChineseRock';
 }
+.gambar{
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.gambar img{
+    width: 90%;
+    object-fit: cover;
+}
