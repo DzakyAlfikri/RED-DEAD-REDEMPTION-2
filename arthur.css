@@ -2,35 +2,100 @@
     box-sizing: border-box;
 }
 
+@font-face{
+    font-family: 'ChineseRock';
+    src: url(asset/chinese\ rocks\ rg.otf);
+}
+
 body{
     margin: 0;
     padding: 0;
 }
 
 .background{
-    background-color: red;
+    /* background-color: red; */
     width: 100%;
     height: 100vh;
     display: flex;
+    background-image: url('asset/bginfochar.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
 }
 
 .gambar{
-    background-color: yellow;
-    width: 50%;
+    /* background-color: yellow; */
+    width: 40%;
     height: 100vh;
-}
-
-.deskripsi{
-    background-color: green;
-    width: 50%;
-    height: 100vh;
+    display: flex;
+    justify-content: right;
+    align-items: center;
     position: relative;
 }
 
-.kembali{
-    background-color: blue;
-    width: 100%;
-    height: 100px;
-    bottom: 0;
+.gambar img{
+    position: relative;
+    width: 80%;
+    height: auto;
+}
+
+.deskripsi{
+    /* background-color: green; */
+    width: 60%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.deskripsi h3{
+    background-color: #333333;
+    border: 0.5px solid white;
+    color: white;
+    font-family: 'ChineseRock';
+    width: 90%;
+    height: 80px;
+    font-size: 50px;
+    padding: 0 20px;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.deskripsi p{
+    background-color: #333333;
+    border: 0.5px solid white;
+    color: white;
+    width: 90%;
+    height: 170px;
+    font-size: 17.5px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+
+}
+
+.deskripsi a{
+    font-family: 'ChineseRock';
+    text-decoration: none;
+    background: #840000;
+    border: 3px solid #CF0000;
+    color: white;
+    font-size: 40px;
     position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: 150px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.deskripsi a:hover{
+    transform: scale(1.15);
 }
