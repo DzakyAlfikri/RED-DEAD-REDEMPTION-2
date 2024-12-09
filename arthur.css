@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.background{
+    background-color: red;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.gambar{
+    background-color: yellow;
+    width: 50%;
+    height: 100vh;
+}
+
+.deskripsi{
+    background-color: green;
+    width: 50%;
+    height: 100vh;
+    position: relative;
+}
+
+.kembali{
+    background-color: blue;
+    width: 100%;
+    height: 100px;
+    bottom: 0;
+    position: absolute;
+}

@@ -40,10 +40,10 @@ if (isset($_POST['login'])) {
 <body style="background-color: white;">
     <div class="login">
         <div class="gambar1">
-            <img src="asset/login1.png">
+            <img src="asset/login.png">
         </div>
         <div class="input">
-            <img src="asset/login2.png">
+            <img src="asset/judul.png">
             <h2><span> WELCOME TO THE WEST. </span>ITS TIME TO MAKE YOUR MARK</h2>
             <div class="garisbawah"></div>
             <form action="" method="post">
