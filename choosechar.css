@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: 'ChineseRock';
+    src: url(asset/chinese\ rocks\ rg.otf);
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.background{
+    background-image: url(asset/bgchoosechar.png);
+    width: 100%;
+    height: 100vh;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.judul{
+    /* background-color: red; */
+    width: 100%;
+    height: 20vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.judul p{
+    font-family: 'ChineseRock';
+    position: absolute;
+    font-size: 5em;
+    color: #C5C5C5;
+}
+
+.konten{
+    /* background-color: blue; */
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid{
+    position: relative;
+    background-color: #560101;
+    width: 90%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    align-items: center;
+    padding: 30px;
+}
+
+.grid img{
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.bawah{
+    /* background-color: green; */
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+}
+
+.bawah a{
+    font-family: 'ChineseRock';
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    font-size: 30px;
+    width: 130px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid img:hover{
+    border: 2px solid white;
+}
+
+.karakter.pilih {
+    border: 2px solid white;
+}
+
+.bawah a:hover{
+    transform: scale(1.2);
+}

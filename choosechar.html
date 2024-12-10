@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Charakter</title>
+    <link rel="stylesheet" href="choosechar.css">
+</head>
+<body>
+    <div class="background">
+
+        <div class="judul">
+            <p>CHOOSE CHARACTER</p>
+        </div>
+
+        <div class="konten">
+            <div class="grid">
+                <img src="asset/arthur.png" class="karakter">
+                <img src="asset/dutch.png" class="karakter">
+                <img src="asset/jack.png" class="karakter">
+                <img src="asset/abigail.jpg" class="karakter">
+                <img src="asset/josiah.jpg" class="karakter">
+            </div>
+        </div>
+
+        <div class="bawah">
+            <a href="#">GO</a>
+        </div>
+
+    </div>
+</body>
+<script>
+    const characters = document.querySelectorAll('.karakter');
+
+    characters.forEach(character => {
+        character.addEventListener('click', () => {
+            characters.forEach(c => c.classList.remove('pilih')); 
+            character.classList.add('pilih'); 
+        });
+    });
+    
+</script>
+</html>

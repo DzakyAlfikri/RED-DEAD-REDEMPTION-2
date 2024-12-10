@@ -7,6 +7,11 @@
     src: url(asset/chinese\ rocks\ rg.otf);
 }
 
+@font-face{
+    font-family: 'Neu';
+    src: url(asset/Neue-Aachen-Pro-Book.ttf);
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -192,6 +197,7 @@ video::-webkit-media-controls {
 }
 
 .misi{
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center
@@ -200,6 +206,13 @@ video::-webkit-media-controls {
     font-family: 'ChineseRock';
     font-size: 35px;
     color: white;
+    width: 100%;
+}
+
+.misi p:hover{
+    transform: scale(1.2);
+    transition: transform 0.2s;
+    color: #AD2727;
 }
 
 .garisbawah{
@@ -374,6 +387,7 @@ video::-webkit-media-controls {
     text-align: justify;
     visibility: hidden;
     opacity: 0;
+    font-family: 'Neu';
 }
 
 .goodend h3, .badend h3{
