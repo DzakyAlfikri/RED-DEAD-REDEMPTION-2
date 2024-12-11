@@ -1,0 +1,126 @@
+@font-face{
+    font-family: 'ChineseRock';
+    src: url(asset/chinese\ rocks\ rg.otf);
+}
+
+@font-face{
+    font-family: 'Neu';
+    src: url(asset/Neue-Aachen-Pro-Book.ttf);
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.kiri {
+    flex-grow: 1;
+    background-color: #470000;
+    padding: 25px;
+    font-family: 'ChineseRock';
+    color: white;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+}
+
+.img img {
+    width: 200px;
+}
+
+.kotak{
+    background-image: linear-gradient(-90deg,#280101,#8E0202);
+    margin: 10px 0;
+    border: 1px solid white;
+}
+
+.bawah{
+    display: flex;
+    justify-content: center;
+}
+
+.kotak-bawah {
+    background-color: #840000 ;
+    border: 1px solid #CF0000;
+    padding: 10px 20px;
+    position: absolute;
+    bottom: 20px;
+}
+
+.kotak table tr td:first-child{
+    text-align: right;
+    width: 33%;
+}
+
+.kotak table tr td{
+    vertical-align: middle;
+    padding: 5px;
+    font-family: 'ChineseRock';
+}
+
+.kotak table tr td img{
+    width: 30px;
+}
+
+.kotak table, .kotak tr,.kotak td{
+    border: none;
+}
+
+.kanan {
+    flex-grow: 12;
+    background-color: black;
+    padding: 25px;
+}
+
+.kanan .garis {
+    height: 2px;
+    background: white;
+    margin-bottom: 25px;
+}
+
+table {
+    width: 100%;
+}
+
+table, tr,td {
+    border-collapse: collapse;
+    padding: 10px 20px;
+    color: white;
+    border: 1px solid white;
+    font-family: 'Neu';
+    font-size: 18px;
+}
+
+.kanan-atas{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.kanan-atas button{
+    background-color: #5C5C5C;
+    font-family: 'ChineseRock';
+    color: white;
+    padding: 10px 50px;
+    font-size: 24px;
+}
+
+.kanan-atas input{
+    font-size: 18px;
+    padding: 5px 10px;
+}
+
+.kanan table tr td:last-child{
+    display: flex;
+    justify-content: center;
+    border: none;
+    gap: 0 10px;
+}
+
+
+td img {
+    width: 40px;
+}
