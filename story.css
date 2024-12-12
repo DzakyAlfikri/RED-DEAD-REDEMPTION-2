@@ -1,0 +1,117 @@
+*{
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: 'ChineseRock';
+    src: url(asset/chinese\ rocks\ rg.otf);
+}
+
+@font-face{
+    font-family: 'Neu';
+    src: url(asset/Neue-Aachen-Pro-Book.ttf);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.background{
+    background-image: url(asset/bgstory.png);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+}
+
+.atas{
+    /* background-color: green; */
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kertas{
+    /* background-color: blue; */
+    width: 90%;
+    height: 90%;
+    display: flex;
+    background-image: url(asset/kertasstrory.png);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+
+.gambar{
+    /* background-color: aqua; */
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.gambar img{
+    width: 90%;
+    height: auto;
+}
+
+.deskripsi{
+    /* background-color: antiquewhite; */
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+}
+
+.deskripsi h5{
+    font-size: 4em;
+    font-family: 'ChineseRock';
+    background-color: #CB0000;
+    margin: 60px 0;
+    margin-bottom: 30px;
+    width: 60%;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.7); 
+}
+
+.deskripsi p{
+    font-family: 'Neu';
+    max-width: 550px;
+    font-size: 1.3em;
+    text-align: justify;
+    /* background-color: yellow ; */
+}
+
+.tombol{
+    /* background-color: red; */
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 70px; 
+}
+
+.tombol a{
+    font-family: 'ChineseRock';
+    text-decoration: none;
+    background: #840000;
+    border: 3px solid #CF0000;
+    color: white;
+    font-size: 40px;
+    width: 150px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tombol a:hover{
+    color: #840000;
+    background-color: white;
+    border: 3px solid #CF0000;
+}
