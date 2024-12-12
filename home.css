@@ -38,9 +38,13 @@ nav{
 
 .kiri .logo{
     background-color: lightgrey;
-    width: 50px;
+    width: 60px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 50px;
+    background-image: url(asset/arthur2.png);
+    background-position: center;
+    background-size: cover;
+    border: 1px solid white;
 }
 
 .kiri .username{

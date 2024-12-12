@@ -2,16 +2,10 @@
 include 'koneksi.php';
 
 $hasil = mysqli_query($conn,"select * from karakter");
-// $hasil2 = mysqli_fetch_assoc($hasil);
 $hasil3 = array();
-// var_dump($hasil);
-// var_dump($hasil2);
-
 while ($hasil2 = mysqli_fetch_assoc($hasil)) {
     array_push($hasil3,$hasil2);
 }
-
-var_dump($hasil3);
 
 ?>
 
@@ -23,12 +17,11 @@ var_dump($hasil3);
     <title>Home</title>
     <link rel="stylesheet" href="home.css"> 
 </head>
-<body style="background-color:white;">
+<body>
 
     <nav>
         <div class="kiri">
             <div class="logo">
-
             </div>
             <div class="username">
                 <p>Username</p>

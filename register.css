@@ -22,7 +22,7 @@ body{
     align-items: center;
     justify-content: center;
     color: white;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 h2 {
     font-family: 'ChineseRock';
@@ -55,7 +55,7 @@ input::placeholder{
 .tombol {   
     width: 20%;
     padding: 8px;
-    margin: 20px 0;
+    margin: 20px 0 15px;
     background: #840000;
     border: 3px solid #CF0000;
     color: white;

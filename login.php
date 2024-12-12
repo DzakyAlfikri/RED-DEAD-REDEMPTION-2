@@ -3,7 +3,12 @@ include 'koneksi.php';
     
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
-    $password = $_POST['password']; // Capture the password input
+    $password = $_POST['password']; 
+    
+    if($username == "admin" && $password =="admin"){
+        header("Location: dashboard.php");
+    }
+    // Capture the password input
 
     // Prepare query to find the user
     $query = "SELECT password FROM user WHERE username='$username'";
@@ -15,7 +20,7 @@ if (isset($_POST['login'])) {
         if ($result2) {
             // Check if the password matches
             if ($result2["password"] == $password) {
-                header("Location: index.html");
+                header("Location: home.php");
                 exit(); // Ensure script stops execution after redirect
             } else {
                 echo "<script> alert('Invalid password!'); </script>";
@@ -37,7 +42,7 @@ if (isset($_POST['login'])) {
     <title>Login</title>
     <link rel="stylesheet" href="login.css">
 </head>
-<body style="background-color: white;">
+<body>
     <div class="login">
         <div class="gambar1">
             <img src="asset/login.png">
@@ -52,7 +57,7 @@ if (isset($_POST['login'])) {
                 
                 <button type="submit" class="tombol" name="login">LOGIN</button>
                 
-                <a href="register.html" class="buat-akun">CREATE ACCOUNT</a>
+                <a href="register.php" class="buat-akun">CREATE ACCOUNT</a>
             </form>
         </div>
     </div>

@@ -124,3 +124,17 @@ table, tr,td {
 td img {
     width: 40px;
 }
+
+.kanan-bawah {
+    display: flex;
+    justify-content: center;
+}
+
+.kanan-bawah .page {
+    margin: 20px 10px;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    font-family: "Neu";
+}

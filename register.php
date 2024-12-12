@@ -1,4 +1,10 @@
 <?php 
+    $username = '';
+    $nama = '';
+    $birthday = '';
+    $password = '';
+    $confirmpassword = '';
+    $error = '';
     include 'koneksi.php';
     if(isset($_POST['register'])){
         $username = $_POST['username'];
@@ -10,11 +16,20 @@
             $query = "insert into user values('$username', '$nama', '$birthday', '$password')";
             try {
                 mysqli_query($conn,$query);
+                echo "<script>
+                    alert('Berhasil registrasi akun');
+                    let jawaban = confirm('Ingin lanjut ke menu utama?');
+                    if (jawaban) {
+                    window.location.href = 'home.php';
+                    } else {
+                    window.location.href = 'login.php';
+                    }
+                    </script>";
             } catch (\Throwable $th) {
-                echo "<script> alert ('username sudah digunakan')</script>";
+                $error ="username sudah digunakan";
             }
         } else {
-            echo "<script> alert ('password tidak sama')</script>";
+            $error ="password tidak sama";
         }
     }
 ?>
@@ -33,15 +48,19 @@
             <h2><span> YOUR ADVENTURE  </span> BEGINS HERE </h2>
 
             <form action="" method="post">
-                <input type="text" placeholder="USERNAME" class="isi" name="username">
-                <input type="text" placeholder="NAME" class="isi" name="nama">
-                <input type="text" placeholder="BIRTHDAY" class="isi" name="birthday">
-                <input type="password" placeholder="PASSWORD" class="isi" name="password">
-                <input type="password" placeholder="CONFIRM PASSWORD" class="isi" name="confirmpassword">
+                <input type="text" placeholder="USERNAME" class="isi" name="username" value="<?= $username ?>">
+                <input type="text" placeholder="NAME" class="isi" name="nama" value="<?= $nama ?>">
+                <input type="text" placeholder="BIRTHDAY (YYYY-MM-DD) " class="isi" name="birthday" value="<?= $birthday ?>">
+                <input type="password" placeholder="PASSWORD" class="isi" name="password" value="<?= $password ?>">
+                <input type="password" placeholder="CONFIRM PASSWORD" class="isi" name="confirmpassword" value="<?= $confirmpassword ?>">
+
+                <?php if (!empty($error)): ?>
+                    <p style="color: red;"><?php echo $error; ?></p>
+                <?php endif; ?>
                 
                 <button type="submit" class="tombol" name="register">CREATE</button>
                 
-                <a href="login.html" class="balik-login">HAVE AN ACCOUNT</a>
+                <a href="login.php" class="balik-login">HAVE AN ACCOUNT</a>
             </form>
         </div>
         <div class="gambar">

@@ -8,9 +8,6 @@ $hasil3 = array();
 while ($hasil2 = mysqli_fetch_assoc($hasil)) {
     array_push($hasil3,$hasil2);
 }
-
-var_dump($hasil3);
-
 ?>
 
 <!DOCTYPE html>
