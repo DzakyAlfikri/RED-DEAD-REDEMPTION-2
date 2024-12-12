@@ -1,0 +1,161 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face{
+    font-family: 'ChineseRock';
+    src: url(asset/chinese\ rocks\ rg.otf);
+}
+
+.semua{
+    width: 100%;
+    height: 100vh;
+    background-image: url(asset/bgprofil.png);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.atas{
+    /* background-color: black; */
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.tabel{
+    /* background-color: antiquewhite; */
+    border: 1px solid white;
+    width: 90%;
+    height: 50vh;
+    display: flex;
+}
+
+.kanan{
+    /* background-color: aqua; */
+    border: 1px solid white;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kanan img{
+    width: 90%;
+    height: auto;
+}
+
+.tengah{
+    /* background-color: lightcoral; */
+    border: 1px solid white;
+    width: 15%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tengah p{
+    color: white;
+    font-family: 'ChineseRock';
+    transform: rotate(-90deg);
+    font-size: 50px;
+    white-space: nowrap;
+}
+
+.kiri{
+    /* background-color: lightgreen; */
+    border: 1px solid white;
+    width: 55%;
+    height: 100%;
+}
+
+.kiri table{
+    width: 100%;
+    border: 1px solid white;
+    border-collapse: collapse;
+    
+}
+
+.kiri td {
+    font-family: 'ChineseRock';
+    font-size: 34px;
+    color: white;
+    border-bottom: 1px solid white;
+    padding: 20px 20px;
+}
+
+.tombol{
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tombol a{
+    font-family: 'ChineseRock';
+    text-decoration: none;
+    background: #840000;
+    border: 3px solid #CF0000;
+    color: white;
+    font-size: 40px;
+    width: 150px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.tombol a:hover{
+    color: #840000;
+    background-color: white;
+    border: 3px solid #CF0000;
+}
+
+.judul{
+    position: absolute;
+    left: 5%;
+    bottom: -10%;
+    color: white;
+    font-family: 'ChineseRock';
+    font-size: 40px;
+}
+
+.bawah{
+    /* background-color: green; */
+    width: 100%;
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.achivement{
+    /* background-color: yellow; */
+    width: 90%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    align-items: center;
+    
+    
+}
+
+.achivement img{
+    width: 100%;
+    height: auto;
+}
