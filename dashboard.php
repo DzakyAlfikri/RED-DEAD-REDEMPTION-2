@@ -1,4 +1,10 @@
 <?php
+
+session_start();
+$id = $_SESSION["username"];
+if ($id != "admin") {
+    header("Location: home.php");
+}
 include 'koneksi.php';
 
 // Get the current page number (default to 1 if not set)
@@ -50,7 +56,7 @@ $totalPages = ceil($totalResult / $perpage);
     <div class="kiri">
         <div class="atas">
             <div class="img">
-                <img src="asset/judul.png" alt="">
+                <a href="home.php">  <img src="asset/judul.png" alt=""> </a>
             </div>
             <div class="kotak">
                 <table>
@@ -138,6 +144,12 @@ function confirmDelete(url) {
     if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
         window.location.href = url; // Redirect ke URL jika user memilih "OK"
     }
+}
+
+function navigateToPage(page) {
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.set('page', page); // Update the 'page' parameter
+    window.location.search = searchParams.toString(); // Reload the page with the updated query string
 }
 </script>
 

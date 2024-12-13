@@ -1,4 +1,6 @@
 <?php 
+session_start();
+$id = $_SESSION["username"];
 include 'koneksi.php';
 
 $hasil = mysqli_query($conn,"select * from karakter");
@@ -21,12 +23,34 @@ while ($hasil2 = mysqli_fetch_assoc($hasil)) {
 
     <nav>
         <div class="kiri">
-            <div class="logo">
-            </div>
-            <div class="username">
-                <p>Username</p>
-            </div>
+        <?php if ($id == "admin"): ?>
+            <a href="dashboard.php">
+                <div class="logo"></div>
+            </a>
+        <?php else: ?>
+            <a href="profil.php?id=<?=$id?>">
+                <div class="logo"></div>
+            </a>
+        <?php endif; ?>
+
+
+        <?php if ($id == "admin"): ?>
+            <a href="dashboard.php">
+                <div class="username">
+                    <p>Username</p>
+                </div>
+            </a>
+        <?php else: ?>
+            <a href="profil.php?id=<?=$id?>">
+                <div class="username">
+                    <p>Username</p>
+                </div>
+            </a>
+        <?php endif; ?>
+              
+                
         </div>
+
         <div class="kanan">
             <a href="#">Home</a>
             <a href="#">Story</a>

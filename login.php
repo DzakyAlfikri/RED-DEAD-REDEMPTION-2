@@ -7,6 +7,9 @@ if (isset($_POST['login'])) {
     
     if($username == "admin" && $password =="admin"){
         header("Location: dashboard.php");
+        session_start();
+        $_SESSION["username"]="admin";
+        exit();
     }
     // Capture the password input
 
@@ -21,7 +24,9 @@ if (isset($_POST['login'])) {
             // Check if the password matches
             if ($result2["password"] == $password) {
                 header("Location: home.php");
-                exit(); // Ensure script stops execution after redirect
+                session_start();
+                $_SESSION["username"]=$_POST["username"];
+                exit();
             } else {
                 echo "<script> alert('Invalid password!'); </script>";
             }
