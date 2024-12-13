@@ -1,44 +1,31 @@
-<?php
+<?php 
 include 'koneksi.php';
 
-// Ambil ID dari parameter URL
-$id = $_GET['id'];
-
-// Ambil data user dari database berdasarkan username
-$hasil = mysqli_query($conn, "SELECT * FROM user WHERE username='$id'");
+$hasil = mysqli_query($conn,"select * from user where username='$id'");
 $hasil2 = mysqli_fetch_assoc($hasil);
+$nama = $hasil2["name"];
+$username = $hasil2["username"];
+$birthday = $hasil2["birthday"];
+$password = $hasil2["password"];
 
-$nama = $hasil2['name'];
-$username = $hasil2['username'];
-$birthday = $hasil2['birthday'];
-$password = $hasil2['password'];
-
-// Cek apakah form disubmit
-if (isset($_POST['submit'])) {
-    // Ambil nilai dari input form
-    $nama = $_POST['nama'];
-    $username = $_POST['username'];
-    $birthday = $_POST['birthday'];
-    $password = $_POST['password'];
-
-    // Query untuk mengupdate data di database
-    $query = "UPDATE user SET 
-                name = '$nama', 
-                username = '$username', 
-                birthday = '$birthday', 
-                password = '$password' 
-              WHERE username = '$id'";
-
-    // Eksekusi query
-    if (mysqli_query($conn, $query)) {
-        echo "<script>alert('Data berhasil diperbarui!');</script>";
-        header("Location: dashboard.php");
-    } else {
-        echo "<script>alert('Terjadi kesalahan saat memperbarui data.');</script>";
+if(isset($_POST["form"])){
+    try {
+        $nama = $_POST["nama"];
+        $username = $_POST["username"];
+        $birthday = $_POST["birthday"];
+        $password = $_POST["password"];
+        echo $nama;
+        $query = "UPDATE user SET 
+                    birthday = '$birthday'
+                  WHERE username = '$id'";
+        mysqli_query($conn, $query);
+    } catch (\Throwable $th) {
+        echo "<script> alert ('$th') </script>";
     }
 }
-?>
 
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,31 +78,31 @@ if (isset($_POST['submit'])) {
             <button>ADD</button>
         </div>
         <div class="table">
-        <form action="dashboardedit.php?id=<?= htmlspecialchars($id) ?>" method="post">
+            <form action="dashboardedit.php" method="post" name="form">
                 <table>
                     <tr>
                         <td>Name </td>
-                        <td><input type="text" value="<?= $hasil2['name'] ?>" name="nama">
+                        <td><input type="text" placeholder="<?= $hasil2['name'] ?>" name="nama">
                         </td>
                     </tr>
                     <tr>
                         <td>Username </td>
-                        <td><input type="text" value="<?= $hasil2['username'] ?>" name="username">
+                        <td><input type="text" placeholder="<?= $hasil2['username'] ?>" name="username">
                         </td>
                     </tr>
                     <tr>
                         <td>Birthday </td>
-                        <td><input type="text" value="<?= $hasil2['birthday'] ?>" name="birthday">
+                        <td><input type="text" placeholder="<?= $hasil2['birthday'] ?>" name="birthday">
                         </td>
                     </tr>
                     <tr>
                         <td>Password </td>
-                        <td><input type="text" value="<?= $hasil2['password'] ?>" name="password">
+                        <td><input type="text" placeholder="<?= $hasil2['password'] ?>" name="password">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="centered">
-                            <button type="submit" name="submit">Save</button>
+                            <button type="submit">Save</button>
                         </td>
                     </tr>
                 </table>

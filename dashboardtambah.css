@@ -84,20 +84,9 @@ table {
     width: 100%;
 }
 
-table, tr,td {
-    border-collapse: collapse;
-    padding: 10px 20px;
-    color: white;
-    border: 1px solid white;
-    font-family: 'Neu';
-    font-size: 18px;
-}
-
 .kanan-atas{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 25px;
+    background-color: #fff;
 }
 
 .kanan-atas button{
@@ -106,33 +95,26 @@ table, tr,td {
     color: white;
     padding: 10px 50px;
     font-size: 24px;
-}
-
-.kanan-atas input{
-    font-size: 18px;
-    padding: 5px 10px;
-}
-
-.kanan table tr td:last-child{
-    display: flex;
-    justify-content: center;
-    border: none;
-    gap: 0 10px;
+    width: 100%;
 }
 
 
-td img {
-    width: 40px;
+.kanan table {
+    width: 75%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: left;
+    color: white;
+    font-family: 'Neu';
+    font-size: 16px;
 }
-
-/* pisah */
 
 .kanan table tr td:first-child{
     width: 25%;
 }
 
 .kanan table tr td input {
-    width: 100%;
+    width: 95%;
     background-color: black;
     color: white;
     font-size: 16px;
@@ -150,12 +132,17 @@ td.centered {
     text-align: center;
 }
 
-.kanan table {
-    width: 75%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    text-align: left;
+button {
+    padding: 10px 20px;
+    background-color: #5C5C5C;
     color: white;
-    font-family: 'Neu';
+    border: none;
     font-size: 16px;
+    cursor: pointer;
+    width: 100%;
 }
+
+button:hover {
+    background-color: darkgreen;
+}
+

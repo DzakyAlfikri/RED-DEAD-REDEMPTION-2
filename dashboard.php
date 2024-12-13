@@ -87,7 +87,7 @@ $totalPages = ceil($totalResult / $perpage);
             <form action="dashboard.php" method="get">
                 <input type="search" name="search" placeholder="masukan username">
             </form>
-            <button>ADD</button>
+            <a href="dashboardtambah.php"><button style="cursor: pointer;">ADD</button></a> 
         </div>
         <table>
             <?php
@@ -100,20 +100,23 @@ $totalPages = ceil($totalResult / $perpage);
                         <td> Action</td>
                         </tr>';
                         
-                for ($i = 0; $i < count($hasil3); $i++) { 
-                    $id = $hasil3[$i]["username"];
-                    echo '<tr>
-                        <td>' . ($i + 1) . '</td>
-                        <td>' . $hasil3[$i]["username"] . '</td>
-                        <td>' . $hasil3[$i]["name"] . '</td>
-                        <td>' . $hasil3[$i]["birthday"] . '</td>
-                        <td>' . $hasil3[$i]["password"] . '</td>
-                        <td> 
-                            <a href="dashboardedit.php?id=' . $id . '"><img src="asset/icon/edit.png"></a>
-                            <a href ="dashboardhapus.php?id='.$id.'" id="cek"> <img src="asset/icon/delete.png"></a>
-                        </td>
-                    </tr>';
-                }
+                        for ($i = 0; $i < count($hasil3); $i++) { 
+                            $id = $hasil3[$i]["username"];
+                            echo '<tr>
+                                <td>' . ($i + 1) . '</td>
+                                <td>' . $hasil3[$i]["username"] . '</td>
+                                <td>' . $hasil3[$i]["name"] . '</td>
+                                <td>' . $hasil3[$i]["birthday"] . '</td>
+                                <td>' . $hasil3[$i]["password"] . '</td>
+                                <td> 
+                                    <a href="dashboardedit.php?id=' . $id . '"><img src="asset/icon/edit.png"></a>
+                                    <a href="javascript:void(0)" onclick="confirmDelete(\'dashboardhapus.php?id=' . $id . '\')" id="cek"> 
+                                        <img src="asset/icon/delete.png">
+                                    </a>
+                                </td>
+                            </tr>';
+                        }
+                        
             ?>
         </table>
 
@@ -131,35 +134,12 @@ $totalPages = ceil($totalResult / $perpage);
 </div>
 
 <script>
-    function navigateToPage(page) {
-        window.location.href = '?page=' + page;
+function confirmDelete(url) {
+    if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
+        window.location.href = url; // Redirect ke URL jika user memilih "OK"
     }
-
-    function confirmDelete(id) {
-        // JavaScript confirmation dialog
-        let confirmDelete = confirm("Apakah Anda ingin menghapus data ini?");
-        if (confirmDelete) {
-            // If confirmed, redirect to the PHP page to delete the data
-            window.location.href = "dashboardhapus.php?id=" + id + "&delete=true";
-        } else {
-            // If canceled, no action taken (stay on the same page)
-            return false;
-        }
-    }
+}
 </script>
 
-<script>
-    function confirmDelete(id) {
-        // JavaScript confirmation dialog
-        let confirmDelete = confirm("Apakah Anda ingin menghapus data ini?");
-        if (confirmDelete) {
-            // If confirmed, redirect to the PHP page to delete the data
-            window.location.href = "dashboardhapus.php?id=" + id + "&delete=true";
-        } else {
-            // If canceled, no action taken (stay on the same page)
-            return false;
-        }
-    }
-</script>
 </body>
 </html>
