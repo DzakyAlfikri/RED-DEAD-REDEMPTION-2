@@ -1,6 +1,9 @@
 <?php 
 session_start();
-$id = $_SESSION["username"];
+$id ="";
+if (isset($_SESSION["username"])) {
+    $id = $_SESSION["username"];
+}
 include 'koneksi.php';
 
 $hasil = mysqli_query($conn,"select * from karakter");
@@ -83,7 +86,7 @@ while ($hasil2 = mysqli_fetch_assoc($hasil)) {
     <div class="background2">
         <div class="gradasi">
             <div class="garisatas"></div>
-            <div class="misi"><a href="choosechar.html"><p>START MISSIONS</p></a></div>
+            <div class="misi"><a href="choosechar.php"><p>START MISSIONS</p></a></div>
             <div class="garisbawah"></div>
         </div>
         <img src="asset/bgchararter.png">

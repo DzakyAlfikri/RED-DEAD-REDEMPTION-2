@@ -1,7 +1,10 @@
 <?php 
-session_start();
-$id = $_SESSION["username"];
 include "koneksi.php";
+session_start();
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php");
+}
+$id = $_SESSION["username"];
 
 $query = "select * from pencapaian where iduser='$id'";
 $hasil = mysqli_query($conn,$query);
@@ -13,10 +16,6 @@ while ($x = mysqli_fetch_assoc($hasil)) {
 
 var_dump($hasil2);
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
