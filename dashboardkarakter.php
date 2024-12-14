@@ -9,17 +9,17 @@ include 'koneksi.php';
 
 // Get the current page number (default to 1 if not set)
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-$perpage = 2; // Number of items per page
+$perpage = 3; // Number of items per page
 $offset = ($page - 1) * $perpage; // Offset for the query
 
 // Get the search query if provided
 $search = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : '';
 
 // Construct the SQL query with the search condition
-$sql = "SELECT * FROM petualangan";
+$sql = "SELECT * FROM karakter";
 if ($search != '') {
     // Add a WHERE clause if there's a search query
-    $sql .= " WHERE idkarakter LIKE '%$search%' OR misi LIKE '%$search%'";
+    $sql .= " WHERE nama LIKE '%$search%'";
 }
 $sql .= " LIMIT $offset, $perpage";
 
@@ -32,13 +32,11 @@ while ($hasil2 = mysqli_fetch_assoc($hasil)) {
     array_push($hasil3, $hasil2);
 }
 
-$nomor = 0;
-
 // Count total results to calculate total pages
-$totalResultQuery = "SELECT COUNT(*) FROM petualangan";
+$totalResultQuery = "SELECT COUNT(*) FROM karakter";
 if ($search != '') {
     // Add a WHERE clause for counting with the search query
-    $totalResultQuery .= " WHERE idkarakter LIKE '%$search%' OR misi LIKE '%$search%'";
+    $totalResultQuery .= " WHERE nama LIKE '%$search%'";
 }
 $totalResult = mysqli_fetch_row(mysqli_query($conn, $totalResultQuery))[0];
 $totalPages = ceil($totalResult / $perpage);
@@ -68,7 +66,7 @@ $totalPages = ceil($totalResult / $perpage);
                     </tr>
                 </table>
             </div>
-            <div class="kotak" >
+            <div class="kotak">
                 <table>
                     <tr id="karakterr">
                         <td><img src="asset/icon/character.png" alt=""></td>
@@ -86,44 +84,44 @@ $totalPages = ceil($totalResult / $perpage);
             </div>
         </div>
         <div class="bawah">
-            <div class="kotak-bawah">Logout</div>
+            <div class="kotak-bawah" id="loggg">Logout</div>
         </div>
     </div>
     <div class="kanan">
         <div class="garis"></div>
         <div class="kanan-atas">
-            <form action="dashboardstory.php" method="get">
+            <form action="dashboardkarakter.php" method="get">
                 <input type="search" name="search" placeholder="masukan username">
             </form>
-            <a href="dashboardstorytambah.php"><button style="cursor: pointer;">ADD</button></a> 
+            <a href="dashboardkaraktertambah.php"><button style="cursor: pointer;">ADD</button></a> 
         </div>
         <table>
-            <tr>
-                <td>No</td>
-                <td>Karakter</td>
-                <td>Misi</td>
-                <td>Cerita</td>
-                <td>Gambar</td>
-                <td>Action</td>
-            </tr>
-
-            <?php foreach ($hasil3 as $x): ?>     
-                <tr>
-                    <td><?= ++$nomor; ?></td>
-                    <td><?= $x["idkarakter"] ?></td>
-                    <td><?= $x["misi"] ?></td>
-                    <td><?= $x["cerita"] ?></td>
-                    <td><?= $x["gambar"] ?></td>
-                    <td>
-                        <a href="dashboardstoryedit.php?id=<?= $x["misi"] ?>"><img src="asset/icon/edit.png"></a>
-                        <a href="javascript:void(0)" onclick="confirmDelete('dashboardstoryhapus.php?id=<?=$x['misi']?>')"> 
-                            <img src="asset/icon/delete.png">
-                        </a>
-                    </td>
-                </tr>           
-            <?php endforeach; ?>
-            
-            
+            <?php
+                echo '<tr>
+                        <td> No</td>
+                        <td> Username</td>
+                        <td> Nama</td>
+                        <td> Birthday</td>
+                        <td> Action</td>
+                        </tr>';
+                        
+                        for ($i = 0; $i < count($hasil3); $i++) { 
+                            $id = $hasil3[$i]["nama"];
+                            echo '<tr>
+                                <td>' . ($i + 1) . '</td>
+                                <td>' . $hasil3[$i]["nama"] . '</td>
+                                <td>' . $hasil3[$i]["description"] . '</td>
+                                <td>' . $hasil3[$i]["poto"] . '</td>
+                                <td> 
+                                    <a href="dashboardkarakteredit.php?id=' . $id . '"><img src="asset/icon/edit.png"></a>
+                                    <a href="javascript:void(0)" onclick="confirmDelete(\'dashboardhapus.php?id=' . $id . '\')" id="cek"> 
+                                        <img src="asset/icon/delete.png">
+                                    </a>
+                                </td>
+                            </tr>';
+                        }
+                        
+            ?>
         </table>
 
         <!-- Pagination buttons -->
@@ -154,6 +152,5 @@ function navigateToPage(page) {
 </script>
 
 <script src="script.js"></script>
-
 </body>
 </html>

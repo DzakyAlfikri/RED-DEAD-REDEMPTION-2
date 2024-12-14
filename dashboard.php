@@ -60,7 +60,7 @@ $totalPages = ceil($totalResult / $perpage);
             </div>
             <div class="kotak">
                 <table>
-                    <tr>
+                    <tr id="yuser">
                         <td><img src="asset/icon/person.png" alt=""></td>
                         <td>User</td>
                     </tr>
@@ -68,7 +68,7 @@ $totalPages = ceil($totalResult / $perpage);
             </div>
             <div class="kotak">
                 <table>
-                    <tr>
+                    <tr id="karakterr">
                         <td><img src="asset/icon/character.png" alt=""></td>
                         <td>Character</td>
                     </tr>
@@ -76,7 +76,7 @@ $totalPages = ceil($totalResult / $perpage);
             </div>
             <div class="kotak">
                 <table>
-                    <tr>
+                    <tr id="misyen">
                         <td><img src="asset/icon/mission.png" alt=""></td>
                         <td>Story</td>
                     </tr>
@@ -84,7 +84,7 @@ $totalPages = ceil($totalResult / $perpage);
             </div>
         </div>
         <div class="bawah">
-            <div class="kotak-bawah">Logout</div>
+            <div class="kotak-bawah" id="loggg">Logout</div>
         </div>
     </div>
     <div class="kanan">
@@ -153,5 +153,6 @@ function navigateToPage(page) {
 }
 </script>
 
+<script src="script.js"></script>
 </body>
 </html>

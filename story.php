@@ -28,7 +28,7 @@ while ($a = mysqli_fetch_assoc($hasil)) {
         <div class="atas">
             <div class="kertas">
                 <div class="gambar">
-                    <img src="asset/storyarthur1.png">
+                    <img src="asset/misi<?= $hasil2[$page]["poto"]?>">
                 </div>
                 
                 <div class="deskripsi">

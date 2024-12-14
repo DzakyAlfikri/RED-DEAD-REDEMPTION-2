@@ -6,15 +6,27 @@ if (!isset($_SESSION["username"])) {
 }
 $id = $_SESSION["username"];
 
-$query = "select * from pencapaian where iduser='$id'";
+$query = "
+select user.*,pencapaian.idkarakter from user join pencapaian on user.username = pencapaian.iduser where user.username = '$id'";
+
 $hasil = mysqli_query($conn,$query);
 $hasil2 = array();
-
 while ($x = mysqli_fetch_assoc($hasil)) {
-    array_push($hasil2,$x["idkarakter"]);
+    array_push($hasil2,$x);
 }
 
-var_dump($hasil2);
+
+// var_dump($hasil2);
+if (count($hasil2) == 0) {
+    $query = "
+    select * from user where username = '$id'";
+    $hasil = mysqli_query($conn,$query);
+}
+
+while ($x = mysqli_fetch_assoc($hasil)) {
+    array_push($hasil2,$x);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,24 +52,24 @@ var_dump($hasil2);
                 <div class="kiri">
                     <table>
                         <tr>
-                            <td>Nama</td>
+                            <td>Nama</td>  
                             <td>:</td>
-                            <td>Athaya Raihan</td>
+                            <td> <?= $hasil2[0]["name"] ?> </td>
                         </tr>
                         <tr>
                             <td>Username</td>
                             <td>:</td>
-                            <td>Atha</td>
+                            <td><?= $hasil2[0]["username"] ?></td>
                         </tr>
                         <tr>
                             <td>Birthday</td>
                             <td>:</td>
-                            <td>12 Desember 2024</td>
+                            <td><?= $hasil2[0]["birthday"] ?></td>
                         </tr>
                     </table>
                     <div class="tombol">
-                        <a href="#">LOGOUT</a>
-                        <a href="#">EDIT</a>
+                        <a href="home.php">HOME</a>
+                        <a href="profiledit.php?username=<?=$id ?>">EDIT</a>
                     </div>
                 </div>
             </div>
@@ -69,13 +81,21 @@ var_dump($hasil2);
 
 
 
-                <?php foreach ($hasil2 as $x): ?>                
-                    <img src="asset/<?=$x?>.png" alt="">
-                <?php endforeach; ?>
-
-                <?php for ($i = 0; $i < 5 - count($hasil2); $i++): ?>
-                    <img src="asset/abigailabu.png" alt="">
+                <?php if(count($hasil2)>1): ?>            
+                    <?php foreach ($hasil2 as $x): ?>    
+                        <img src="asset/<?=$x["idkarakter"]?>.png" alt="">
+                    <?php endforeach; ?>
+                    <?php for ($i = 0; $i < 5 - count($hasil2); $i++): ?>
+                        <img src="asset/kosong.png" alt="">
+                    <?php endfor; ?>
+                <?php endif?>
+                    
+                    
+                <?php for ($i = 0; $i < 5 ; $i++): ?>
+                    <img src="asset/kosong.png" alt="">
                 <?php endfor; ?>
+
+                
                     
 
             </div>

@@ -49,7 +49,7 @@ if (isset($_POST["submit"])) {
             </div>
             <div class="kotak">
                 <table>
-                    <tr>
+                    <tr id="yuser">
                         <td><img src="asset/icon/person.png" alt=""></td>
                         <td>User</td>
                     </tr>
@@ -57,7 +57,7 @@ if (isset($_POST["submit"])) {
             </div>
             <div class="kotak">
                 <table>
-                    <tr>
+                    <tr id="karakterr">
                         <td><img src="asset/icon/character.png" alt=""></td>
                         <td>Character</td>
                     </tr>
@@ -65,7 +65,7 @@ if (isset($_POST["submit"])) {
             </div>
             <div class="kotak">
                 <table>
-                    <tr>
+                    <tr id="misyen">
                         <td><img src="asset/icon/mission.png" alt=""></td>
                         <td>Story</td>
                     </tr>
@@ -86,22 +86,22 @@ if (isset($_POST["submit"])) {
             <table>
 
                     <tr>
-                        <td>Name </td>
+                        <td>Character</td>
                         <td><input type="text" placeholder="nama" name="idkarakter">
                     </td>
                 </tr>
                 <tr>
-                    <td>Username </td>
+                    <td>Mission</td>
                     <td><input type="text" placeholder="username" name="misi">
                     </td>
                 </tr>
                 <tr>
-                    <td>Birthday </td>
+                    <td>Story</td>
                     <td><input type="text" placeholder="birthday (YYYY-MM-DD)" name="cerita">
                 </td>
             </tr>
             <tr>
-                <td>Password </td>
+                <td>Image</td>
                 <td><input type="text" placeholder="password" name="gambar">
             </td>
         </tr>

@@ -21,6 +21,11 @@ while ($hasil2 = mysqli_fetch_assoc($hasil)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="home.css"> 
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
 
@@ -46,7 +51,11 @@ while ($hasil2 = mysqli_fetch_assoc($hasil)) {
         <?php else: ?>
             <a href="profil.php?id=<?=$id?>">
                 <div class="username">
-                    <p>Username</p>
+                    <?php if ($id != ""): ?>
+                        <p><?= $id ?></p>
+                    <?php else: ?>
+                        <p>GUEST</p>
+                    <?php endif; ?>
                 </div>
             </a>
         <?php endif; ?>
@@ -55,9 +64,9 @@ while ($hasil2 = mysqli_fetch_assoc($hasil)) {
         </div>
 
         <div class="kanan">
-            <a href="#">Home</a>
-            <a href="#">Story</a>
-            <a href="#">Character</a>
+            <a href="choosechar.php">Story</a>
+            <a href="#apanihnjr">Character</a>
+            <a href="logout.php">Logout</a>
         </div>
     </nav>
 
@@ -89,7 +98,7 @@ while ($hasil2 = mysqli_fetch_assoc($hasil)) {
             <div class="misi"><a href="choosechar.php"><p>START MISSIONS</p></a></div>
             <div class="garisbawah"></div>
         </div>
-        <img src="asset/bgchararter.png">
+        <img src="asset/bgchararter.png" id="apanihnjr">
         <div class="konten">
             <div class="samping">
                 <p data-text="THE VAN DER LINDE GANG">THE VAN DER LINDE GANG</p>

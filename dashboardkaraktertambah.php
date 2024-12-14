@@ -1,29 +1,20 @@
 <?php 
 include 'koneksi.php';
 
-$hasil = mysqli_query($conn,"select * from user where username='$id'");
-$hasil2 = mysqli_fetch_assoc($hasil);
-$nama = $hasil2["name"];
-$username = $hasil2["username"];
-$birthday = $hasil2["birthday"];
-$password = $hasil2["password"];
 
-if(isset($_POST["form"])){
+// var_dump($hasil2);
+if (isset($_POST["submit"])) {
     try {
         $nama = $_POST["nama"];
         $username = $_POST["username"];
         $birthday = $_POST["birthday"];
         $password = $_POST["password"];
-        echo $nama;
-        $query = "UPDATE user SET 
-                    birthday = '$birthday'
-                  WHERE username = '$id'";
-        mysqli_query($conn, $query);
+        mysqli_query($conn,"insert into user values('$username','$nama','$birthday','$password')");
+        echo "<script> alert ('berhasil menambahkan data') </script>";
     } catch (\Throwable $th) {
-        echo "<script> alert ('$th') </script>";
+        echo $th;
     }
 }
-
 
 ?>
 
@@ -45,7 +36,7 @@ if(isset($_POST["form"])){
             </div>
             <div class="kotak">
                 <table>
-                    <tr>
+                    <tr id="yuser">
                         <td><img src="asset/icon/person.png" alt=""></td>
                         <td>User</td>
                     </tr>
@@ -78,37 +69,38 @@ if(isset($_POST["form"])){
             <button>ADD</button>
         </div>
         <div class="table">
-            <form action="dashboardedit.php" method="post" name="form">
-                <table>
+            <form action="dashboardtambah.php" method="post" name="submited">
+            <table>
+
                     <tr>
                         <td>Name </td>
-                        <td><input type="text" placeholder="<?= $hasil2['name'] ?>" name="nama">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Username </td>
-                        <td><input type="text" placeholder="<?= $hasil2['username'] ?>" name="username">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Birthday </td>
-                        <td><input type="text" placeholder="<?= $hasil2['birthday'] ?>" name="birthday">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Password </td>
-                        <td><input type="text" placeholder="<?= $hasil2['password'] ?>" name="password">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="centered">
-                            <button type="submit">Save</button>
-                        </td>
-                    </tr>
-                </table>
-            </form>
+                        <td><input type="text" placeholder="nama" name="nama" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Username </td>
+                    <td><input type="text" placeholder="username" name="username" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Birthday </td>
+                    <td><input type="text" placeholder="birthday (YYYY-MM-DD)" name="birthday" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Password </td>
+                <td><input type="text" placeholder="password" name="password" required>
+            </td>
+        </tr>
+                <tr>
+                    <td colspan="2" class="centered">
+                        <button type="submit" name="submit">ADD</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
         </div>
-
+        
         
     </div>
 </div>

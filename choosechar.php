@@ -1,5 +1,8 @@
 <?php
 session_start(); // Start the session
+if (!isset($_SESSION["username"])) {
+    header("Location:login.php");
+}
 
 // Check if an ID is passed in the URL and store it in the session
 if (isset($_GET['id'])) {

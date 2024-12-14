@@ -10,7 +10,10 @@ if (isset($_POST["submit"])) {
         $birthday = $_POST["birthday"];
         $password = $_POST["password"];
         mysqli_query($conn,"insert into user values('$username','$nama','$birthday','$password')");
-        echo "<script> alert ('berhasil menambahkan data') </script>";
+        echo "<script>
+                alert ('berhasil menambahkan data');
+                window.location.href='dashboard.php';
+            </script>";
     } catch (\Throwable $th) {
         echo $th;
     }
@@ -36,7 +39,7 @@ if (isset($_POST["submit"])) {
             </div>
             <div class="kotak">
                 <table>
-                    <tr>
+                    <tr id="yuser">
                         <td><img src="asset/icon/person.png" alt=""></td>
                         <td>User</td>
                     </tr>
@@ -44,7 +47,7 @@ if (isset($_POST["submit"])) {
             </div>
             <div class="kotak">
                 <table>
-                    <tr>
+                    <tr id="karakterr">
                         <td><img src="asset/icon/character.png" alt=""></td>
                         <td>Character</td>
                     </tr>
@@ -52,7 +55,7 @@ if (isset($_POST["submit"])) {
             </div>
             <div class="kotak">
                 <table>
-                    <tr>
+                    <tr id="misyen">
                         <td><img src="asset/icon/mission.png" alt=""></td>
                         <td>Story</td>
                     </tr>
@@ -74,27 +77,27 @@ if (isset($_POST["submit"])) {
 
                     <tr>
                         <td>Name </td>
-                        <td><input type="text" placeholder="nama" name="nama">
+                        <td><input type="text" placeholder="nama" name="nama" required>
                     </td>
                 </tr>
                 <tr>
                     <td>Username </td>
-                    <td><input type="text" placeholder="username" name="username">
+                    <td><input type="text" placeholder="username" name="username" required>
                     </td>
                 </tr>
                 <tr>
                     <td>Birthday </td>
-                    <td><input type="text" placeholder="birthday (YYYY-MM-DD)" name="birthday">
+                    <td><input type="text" placeholder="birthday (YYYY-MM-DD)" name="birthday" required>
                 </td>
             </tr>
             <tr>
                 <td>Password </td>
-                <td><input type="text" placeholder="password" name="password">
+                <td><input type="text" placeholder="password" name="password" required>
             </td>
         </tr>
                 <tr>
                     <td colspan="2" class="centered">
-                        <button type="submit" name="submit">BACK</button>
+                        <button type="submit" name="submit">ADD</button>
                     </td>
                 </tr>
             </table>
