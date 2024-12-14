@@ -12,23 +12,82 @@
         <div class="atas">
             <div class="kertas">
                 <div class="gambar">
-                    <img src="asset/storyarthur1.png">
+                    <img id="storyimage" src="asset/storyarthur1.png">
                 </div>
                 
                 <div class="deskripsi">
-                    <h5>THE GILDED CAGE</h5>
-                    <p>Arthur Morgan helps Dutch Van der Linde plan an ambitious heist at a luxurious mansion owned by a wealthy aristocrat. This mission begins with an infiltration into a glamorous evening party, where Arthur disguises himself and mingles with the guests to gather crucial information. The opulent atmosphere of the party contrasts sharply with the gang’s dark intentions, creating a unique tension throughout the mission.<br>
+                    <h5 id="judulstory">THE GILDED CAGE</h5>
+                    <p id="deskripsistory">Arthur Morgan helps Dutch Van der Linde plan an ambitious heist at a luxurious mansion owned by a wealthy aristocrat. This mission begins with an infiltration into a glamorous evening party, where Arthur disguises himself and mingles with the guests to gather crucial information. The opulent atmosphere of the party contrasts sharply with the gang’s dark intentions, creating a unique tension throughout the mission.<br>
                         However, chaos ensues as the plan begins to unravel. Arthur must use his wits to escape, avoid armed guards, and protect his comrades. Combining elements of strategy and action, this mission highlights Arthur’s adaptability in difficult situations while showcasing the intrigue of the upper-class criminal world.</p>
                 </div>
             </div>
         </div>
 
         <div class="tombol">
-            <a href="#"> BACK</a>
-            <a href="#"> NEXT</a>
+            <a href="#" onclick="prevstory()"> BACK</a>
+            <a href="#" onclick="nextstory()"> NEXT</a>
         </div>
 
     </div>
 
 </body>
+<script>
+    const stories = [
+            {
+                backgroundColor: 'CB0000',
+                backgroundWidth: '60%',
+                image: 'asset/storyarthur1.png',
+                title: 'THE GILDED CAGE',
+                description: `Arthur Morgan helps Dutch Van der Linde plan an ambitious heist at a luxurious mansion owned by a wealthy aristocrat. This mission begins with an infiltration into a glamorous evening party, where Arthur disguises himself and mingles with the guests to gather crucial information. The opulent atmosphere of the party contrasts sharply with the gang’s dark intentions, creating a unique tension throughout the mission.<br>
+                              However, chaos ensues as the plan begins to unravel. Arthur must use his wits to escape, avoid armed guards, and protect his comrades. Combining elements of strategy and action, this mission highlights Arthur’s adaptability in difficult situations while showcasing the intrigue of the upper-class criminal world.`
+            },
+            {
+                backgroundColor: 'CB0000',
+                backgroundWidth: '60%',
+                image: 'asset/storyarthur2.png',
+                title: 'AMERICAN VENOM',
+                description: `In one of the most intense missions, Arthur faces Micah Bell in a climactic confrontation. Micah, the traitor who has become the gang's primary threat, is finally cornered in the snow-covered mountains. Despite his weakened condition, Arthur draws upon all his strength to face Micah and his followers in a fight fueled by vengeance.<br>
+                              This mission not only tests Arthur's combat skills but also delivers a deeply emotional moment. The snowy mountain backdrop adds to the somber and dramatic atmosphere, reflecting Arthur's inner conflict and the tragic fate awaiting him. American Venom serves as a peak moment of action and emotion, leaving a lasting impression on players.`
+            },
+            {
+                backgroundColor: '#CB0000',
+                backgroundWidth: '93%',
+                image: 'asset/storyarthur3.png',
+                title: 'THE FINE JOYS OF TOBACCO',
+                description: `Arthur Morgan is tasked with sabotaging the tobacco fields of a wealthy and powerful family as part of a strategy to disrupt their operations. The mission begins with Arthur and the gang sneaking into the plantation under the cover of darkness, setting the stage for a tense and stealthy approach. They plant explosives and set fire to the fields, creating chaos as smoke and flames engulf the area.<br>
+                              However, their actions soon draw the attention of armed guards, leading to a violent confrontation. Arthur must fight his way through waves of enemies while ensuring the mission's success and the gang's escape. With its blend of stealth, action, and high stakes, this mission emphasizes Arthur’s resourcefulness and the gang’s relentless pursuit of their goals, even at great personal risk.`
+                
+            }
+        ];
+
+        let currentIndex = 0;
+
+        // Fungsi untuk memperbarui konten
+        function updateStory() {
+            const story = stories[currentIndex];
+            document.getElementById('storyimage').src = story.image;
+            document.getElementById('judulstory').innerText = story.title;
+            document.getElementById('deskripsistory').innerHTML = story.description;
+
+            const judulElement = document.getElementById('judulstory');
+            judulElement.style.backgroundColor = story.backgroundColor;
+            judulElement.style.width = story.backgroundWidth;
+
+        }
+
+        function nextstory() {
+            if (currentIndex < stories.length - 1) {
+                currentIndex++;
+                updateStory();
+            }
+        }
+
+        // Fungsi untuk tombol "BACK"
+        function prevstory() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateStory();
+            }
+        }
+</script>
 </html>
