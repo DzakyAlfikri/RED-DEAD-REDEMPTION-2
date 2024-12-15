@@ -1,0 +1,55 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face{
+    font-family: 'ChineseRock';
+    src: url(asset/chinese\ rocks\ rg.otf);
+}
+
+.bg{
+    background-image: url(asset/succesarthur.png);
+    width: 100%;
+    height: 100vh;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: right;
+    position: relative;
+}
+
+.tombol{
+    /* background-color: yellow; */
+    width: 50%;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    position: absolute;
+    right: 4%;
+}
+
+.tombol a{
+    font-family: 'ChineseRock';
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    font-size: 30px;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.tombol a:hover{
+    transform: scale(1.2);
+}
