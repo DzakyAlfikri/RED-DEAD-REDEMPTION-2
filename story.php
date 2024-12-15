@@ -28,7 +28,7 @@ while ($a = mysqli_fetch_assoc($hasil)) {
         <div class="atas">
             <div class="kertas">
                 <div class="gambar">
-                    <img src="asset/misi<?= $hasil2[$page]["poto"]?>">
+                    <img src="asset/misi/<?= $hasil2[$page]["gambar"]?>">
                 </div>
                 
                 <div class="deskripsi">
@@ -56,7 +56,7 @@ while ($a = mysqli_fetch_assoc($hasil)) {
         // Function to update href values for Next and Previous links
         function updateLinks() {
             if (currentPage == 2) {
-                nextLink.href = `success.php?id=${id}&username=${username}`;
+                nextLink.href = `successtory.php?id=${id}&username=${username}`;
             } else {
 
                 nextLink.href = `story.php?id=${id}&page=${currentPage < 2 ? currentPage + 1 : 2}`;

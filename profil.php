@@ -81,19 +81,21 @@ while ($x = mysqli_fetch_assoc($hasil)) {
 
 
 
-                <?php if(count($hasil2)>1): ?>            
+                <?php if(count($hasil2)>0): ?>            
                     <?php foreach ($hasil2 as $x): ?>    
                         <img src="asset/<?=$x["idkarakter"]?>.png" alt="">
                     <?php endforeach; ?>
                     <?php for ($i = 0; $i < 5 - count($hasil2); $i++): ?>
-                        <img src="asset/kosong.png" alt="">
+                            <img src="asset/kosong.png" alt="">
                     <?php endfor; ?>
+                <?php else: ?>
+                    <?php for ($i = 0; $i < 5 ; $i++): ?>
+                        <img src="asset/kosong.png" alt="">
+                    <?php endfor; ?>            
                 <?php endif?>
                     
                     
-                <?php for ($i = 0; $i < 5 ; $i++): ?>
-                    <img src="asset/kosong.png" alt="">
-                <?php endfor; ?>
+                
 
                 
                     

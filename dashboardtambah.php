@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
         mysqli_query($conn,"insert into user values('$username','$nama','$birthday','$password')");
         echo "<script>
                 alert ('berhasil menambahkan data');
-                window.location.href='dashboard.php';
+                window.location.href='dashboardkarakter.php';
             </script>";
     } catch (\Throwable $th) {
         echo $th;

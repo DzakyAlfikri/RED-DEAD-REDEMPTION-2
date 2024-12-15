@@ -8,9 +8,11 @@ if (isset($_POST["submit"])) {
         $nama = $_POST["nama"];
         $username = $_POST["username"];
         $birthday = $_POST["birthday"];
-        $password = $_POST["password"];
-        mysqli_query($conn,"insert into user values('$username','$nama','$birthday','$password')");
-        echo "<script> alert ('berhasil menambahkan data') </script>";
+        // $password = $_POST["password"];
+        mysqli_query($conn,"insert into karakter values('$nama','$username','$birthday')");
+        echo "<script> alert ('berhasil menambahkan data') 
+                window.location.href='dashboardkarakter.php';
+                </script>";
     } catch (\Throwable $th) {
         echo $th;
     }
@@ -69,7 +71,7 @@ if (isset($_POST["submit"])) {
             <button>ADD</button>
         </div>
         <div class="table">
-            <form action="dashboardtambah.php" method="post" name="submited">
+            <form action="dashboardkaraktertambah.php" method="post" name="submited">
             <table>
 
                     <tr>
@@ -78,18 +80,18 @@ if (isset($_POST["submit"])) {
                     </td>
                 </tr>
                 <tr>
-                    <td>Username </td>
+                    <td>Deskripsi </td>
                     <td><input type="text" placeholder="username" name="username" required>
                     </td>
                 </tr>
                 <tr>
-                    <td>Birthday </td>
+                    <td>Poto </td>
                     <td><input type="text" placeholder="birthday (YYYY-MM-DD)" name="birthday" required>
                 </td>
             </tr>
-            <tr>
-                <td>Password </td>
-                <td><input type="text" placeholder="password" name="password" required>
+            <tr hidden>
+                <td>Poto asf </td>
+                <td><input type="text" placeholder="password" name="password">
             </td>
         </tr>
                 <tr>

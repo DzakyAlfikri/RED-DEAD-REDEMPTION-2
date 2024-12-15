@@ -114,7 +114,7 @@ $totalPages = ceil($totalResult / $perpage);
                                 <td>' . $hasil3[$i]["poto"] . '</td>
                                 <td> 
                                     <a href="dashboardkarakteredit.php?id=' . $id . '"><img src="asset/icon/edit.png"></a>
-                                    <a href="javascript:void(0)" onclick="confirmDelete(\'dashboardhapus.php?id=' . $id . '\')" id="cek"> 
+                                    <a href="javascript:void(0)" onclick="confirmDelete(\'dashboardkarakterhapus.php?id=' . $id . '\')" id="cek"> 
                                         <img src="asset/icon/delete.png">
                                     </a>
                                 </td>
